@@ -1,0 +1,406 @@
+import java.util.Scanner;
+
+public class Translator{
+
+	public static void main(String[] args){
+
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Please think of a sentence with up to three words that you would like to translate...");
+		
+		System.out.println("Please input the verb (conjugated for tense, for 1st person singular) in your sentence (do not use the word 'to be' unless it is a two-word sentence):");
+		String VerbInput = sc.nextLine();
+		
+		System.out.println("Please input the noun/pronoun (subject) in your sentence:");
+		String SubjectInput = sc.nextLine();
+		
+		System.out.println("Please input the noun/pronoun (object) in your sentence:");
+		String ObjectInput = sc.nextLine();
+		
+		System.out.println("Please input the pronoun that would replace the subject in your sentence (if 'we', please specify if it is inclusive or exclusive):");
+		String PngInput = sc.nextLine();
+		
+		if(SubjectInput.equals("I") == true){
+			System.out.print("நான்");
+		} else if(SubjectInput.equals("you") == true){
+			System.out.print("நீ");
+		} else if(SubjectInput.equals("he") == true){
+			System.out.print("அவன்");
+		} else if(SubjectInput.equals("she") == true){
+			System.out.print("அவள்");
+		} else if(SubjectInput.equals("it") == true){
+			System.out.print("அது");
+		} else if(SubjectInput.equals("we exclusive") == true){
+			System.out.print("நாங்கள்");
+		} else if(SubjectInput.equals("we inclusive") == true){
+			System.out.print("நாம்");
+		} else if(SubjectInput.equals("you all") == true){
+			System.out.print("நீங்கள்");
+		} else if(SubjectInput.equals("they") == true){
+			System.out.print("அவர்கள்");
+		} else if(SubjectInput.equals("those") == true){
+			System.out.print("அவை");
+		} else if(SubjectInput.equals("area") == true){
+			System.out.print("பரப்பளவு");
+		} else if(SubjectInput.equals("book") == true){
+			System.out.print("புத்தகம்");
+		} else if(SubjectInput.equals("shop") == true){
+			System.out.print("கடை");
+		} else if(SubjectInput.equals("child") == true){
+			System.out.print("குழந்தை");
+		} else if(SubjectInput.equals("company") == true){
+			System.out.print("நிறுவனம்");
+		} else if(SubjectInput.equals("country") == true){
+			System.out.print("நாடு");
+		} else if(SubjectInput.equals("day") == true){
+			System.out.print("நாள்");
+		} else if(SubjectInput.equals("eye") == true){
+			System.out.print("கண்");
+		} else if(SubjectInput.equals("fact") == true){
+			System.out.print("உண்மை");
+		} else if(SubjectInput.equals("family") == true){
+			System.out.print("குடும்பம்");
+		} else if(SubjectInput.equals("government") == true){
+			System.out.print("அரசாங்கம்");
+		} else if(SubjectInput.equals("group") == true){
+			System.out.print("கூட்டம்");
+		} else if(SubjectInput.equals("hand") == true){
+			System.out.print("கை");
+		} else if(SubjectInput.equals("home") == true){
+			System.out.print("வீடு");
+		} else if(SubjectInput.equals("job") == true){
+			System.out.print("வேலை");
+		} else if(SubjectInput.equals("life") == true){
+			System.out.print("வாழ்க்கை");
+		} else if(SubjectInput.equals("man") == true){
+			System.out.print("ஆண்");
+		} else if(SubjectInput.equals("money") == true){
+			System.out.print("பணம்");
+		} else if(SubjectInput.equals("month") == true){
+			System.out.print("மாதம்");
+		} else if(SubjectInput.equals("mother") == true){
+			System.out.print("தாய்");
+		} else if(SubjectInput.equals("night") == true){
+			System.out.print("இரவு");
+		} else if(SubjectInput.equals("number") == true){
+			System.out.print("எண்");
+		} else if(SubjectInput.equals("part") == true){
+			System.out.print("பகுதி");
+		} else if(SubjectInput.equals("person") == true){
+			System.out.print("ஆள்");
+		} else if(SubjectInput.equals("place") == true){
+			System.out.print("இடம்");
+		} else if(SubjectInput.equals("point") == true){
+			System.out.print("புள்ளி");
+		} else if(SubjectInput.equals("problem") == true){
+			System.out.print("பிரச்சனை");
+		} else if(SubjectInput.equals("question") == true){
+			System.out.print("கேள்வி");
+		} else if(SubjectInput.equals("room") == true){
+			System.out.print("அறை");
+		} else if(SubjectInput.equals("school") == true){
+			System.out.print("பள்ளி");
+		} else if(SubjectInput.equals("story") == true){
+			System.out.print("கதை");
+		} else if(SubjectInput.equals("student") == true){
+			System.out.print("மாணவர்");
+		} else if(SubjectInput.equals("thing") == true){
+			System.out.print("விஷயம்");
+		} else if(SubjectInput.equals("time") == true){
+			System.out.print("காலம்");
+		} else if(SubjectInput.equals("water") == true){
+			System.out.print("தண்ணீர்");
+		} else if(SubjectInput.equals("way") == true){
+			System.out.print("வழி");
+		} else if(SubjectInput.equals("woman") == true){
+			System.out.print("பெண்");
+		} else if(SubjectInput.equals("word") == true){
+			System.out.print("வார்த்தை");
+		} else if(SubjectInput.equals("world") == true){
+			System.out.print("உலகம்");
+		} else if(SubjectInput.equals("year") == true){
+			System.out.print("வருஷம்");
+		} else if(SubjectInput.equals("tree") == true){
+			System.out.print("மரம்");
+		} else if(SubjectInput.equals("flower") == true){
+			System.out.print("பூ");
+		} else if(SubjectInput.equals("sky") == true){
+			System.out.print("வானம்");
+		} else if(SubjectInput.equals("dog") == true){
+			System.out.print("நாய்");
+		} else if(SubjectInput.equals("bird") == true){
+			System.out.print("பறவை");
+		} else if(SubjectInput.equals("horse") == true){
+			System.out.print("குதிரை");
+		} else if(SubjectInput.equals("fly") == true){
+			System.out.print("ஈ");
+		}
+		
+		if(ObjectInput.equals("me") == true){
+			System.out.print(" என்னை");
+		} else if(ObjectInput.equals("you") == true){
+			System.out.print(" உன்னை");
+		} else if(ObjectInput.equals("him") == true){
+			System.out.print(" அவனை");
+		} else if(ObjectInput.equals("her") == true){
+			System.out.print(" அவளை");
+		} else if(ObjectInput.equals("it") == true){
+			System.out.print(" அதை");
+		} else if(ObjectInput.equals("us exclusive") == true){
+			System.out.print(" எங்களை");
+		} else if(ObjectInput.equals("us inclusive") == true){
+			System.out.print(" நம்மை");
+		} else if(ObjectInput.equals("you all") == true){
+			System.out.print(" உங்களை");
+		} else if(ObjectInput.equals("them") == true){
+			System.out.print(" அவர்களை");
+		} else if(ObjectInput.equals("those") == true){
+			System.out.print(" அவற்றை");
+		} else if(ObjectInput.equals("area") == true){
+			System.out.print(" பரப்பளவை");
+		} else if(ObjectInput.equals("book") == true){
+			System.out.print(" புத்தகத்தை");
+		} else if(ObjectInput.equals("shop") == true){
+			System.out.print(" கடையை");
+		} else if(ObjectInput.equals("child") == true){
+			System.out.print(" குழந்தையை");
+		} else if(ObjectInput.equals("company") == true){
+			System.out.print(" நிறுவனத்தை");
+		} else if(ObjectInput.equals("country") == true){
+			System.out.print(" நாட்டை");
+		} else if(ObjectInput.equals("day") == true){
+			System.out.print(" நாளை");
+		} else if(ObjectInput.equals("eye") == true){
+			System.out.print(" கண்ணை");
+		} else if(ObjectInput.equals("fact") == true){
+			System.out.print(" உண்மையை");
+		} else if(ObjectInput.equals("family") == true){
+			System.out.print(" குடும்பத்தை");
+		} else if(ObjectInput.equals("government") == true){
+			System.out.print(" அரசாங்கத்தை");
+		} else if(ObjectInput.equals("group") == true){
+			System.out.print(" கூட்டத்தை");
+		} else if(ObjectInput.equals("hand") == true){
+			System.out.print(" கையை");
+		} else if(ObjectInput.equals("home") == true){
+			System.out.print(" வீட்டை");
+		} else if(ObjectInput.equals("job") == true){
+			System.out.print(" வேலையை");
+		} else if(ObjectInput.equals("life") == true){
+			System.out.print(" வாழ்க்கையை");
+		} else if(ObjectInput.equals("man") == true){
+			System.out.print(" ஆணை");
+		} else if(ObjectInput.equals("money") == true){
+			System.out.print(" பணத்தை");
+		} else if(ObjectInput.equals("month") == true){
+			System.out.print(" மாதத்தை");
+		} else if(ObjectInput.equals("mother") == true){
+			System.out.print(" தாயை");
+		} else if(ObjectInput.equals("night") == true){
+			System.out.print(" இரவை");
+		} else if(ObjectInput.equals("number") == true){
+			System.out.print(" எண்ணை");
+		} else if(ObjectInput.equals("part") == true){
+			System.out.print(" பகுதியை");
+		} else if(ObjectInput.equals("person") == true){
+			System.out.print(" ஆளை");
+		} else if(ObjectInput.equals("place") == true){
+			System.out.print(" இடத்தை");
+		} else if(ObjectInput.equals("point") == true){
+			System.out.print(" புள்ளியை");
+		} else if(ObjectInput.equals("problem") == true){
+			System.out.print(" பிரச்சனையை");
+		} else if(ObjectInput.equals("question") == true){
+			System.out.print(" கேள்வியை");
+		} else if(ObjectInput.equals("room") == true){
+			System.out.print(" அறையை");
+		} else if(ObjectInput.equals("school") == true){
+			System.out.print(" பள்ளியை");
+		} else if(ObjectInput.equals("story") == true){
+			System.out.print(" கதையை");
+		} else if(ObjectInput.equals("student") == true){
+			System.out.print(" மாணவரை");
+		} else if(ObjectInput.equals("thing") == true){
+			System.out.print(" விஷயத்தை");
+		} else if(ObjectInput.equals("time") == true){
+			System.out.print(" காலத்தை");
+		} else if(ObjectInput.equals("water") == true){
+			System.out.print(" தண்ணீரை");
+		} else if(ObjectInput.equals("way") == true){
+			System.out.print(" வழியை");
+		} else if(ObjectInput.equals("woman") == true){
+			System.out.print(" பெண்ணை");
+		} else if(ObjectInput.equals("word") == true){
+			System.out.print(" வார்த்தையை");
+		} else if(ObjectInput.equals("world") == true){
+			System.out.print(" உலகத்தை");
+		} else if(ObjectInput.equals("year") == true){
+			System.out.print(" வருஷத்தை");
+		} else if(ObjectInput.equals("tree") == true){
+			System.out.print(" மரத்தை");
+		} else if(ObjectInput.equals("flower") == true){
+			System.out.print(" பூவை");
+		} else if(ObjectInput.equals("sky") == true){
+			System.out.print(" வானத்தை");
+		} else if(ObjectInput.equals("dog") == true){
+			System.out.print(" நாயை");
+		} else if(ObjectInput.equals("bird") == true){
+			System.out.print(" பறவையை");
+		} else if(ObjectInput.equals("horse") == true){
+			System.out.print(" குதிரையை");
+		} else if(ObjectInput.equals("fly") == true){
+			System.out.print(" ஈயை");
+		}
+		
+		if(VerbInput.equals("saw") == true){
+			System.out.print(" பார்த்த");
+		} else if(VerbInput.equals("see") == true){
+			System.out.print(" பார்க்கிற");
+		} else if(VerbInput.equals("will see") == true){
+			System.out.print(" பார்ப்ப");
+		} else if(VerbInput.equals("ate") == true){
+			System.out.print(" சாப்பிட்ட");
+		} else if(VerbInput.equals("eat") == true){
+			System.out.print(" சாப்பிடுகிற");
+		} else if(VerbInput.equals("will eat") == true){
+			System.out.print(" சாப்பிடுவ");
+		} else if(VerbInput.equals("did") == true){
+			System.out.print(" செய்த");
+		} else if(VerbInput.equals("do") == true){
+			System.out.print(" செய்கிற");
+		} else if(VerbInput.equals("will do") == true){
+			System.out.print(" செய்வ");
+		} else if(VerbInput.equals("said") == true){
+			System.out.print(" சொன்ன");
+		} else if(VerbInput.equals("say") == true){
+			System.out.print(" சொல்கிற");
+		} else if(VerbInput.equals("will say") == true){
+			System.out.print(" சொல்வ");
+		} else if(VerbInput.equals("went") == true){
+			System.out.print(" போன");
+		} else if(VerbInput.equals("go") == true){
+			System.out.print(" போகிற");
+		} else if(VerbInput.equals("will go") == true){
+			System.out.print(" போவ");
+		} else if(VerbInput.equals("made") == true){
+			System.out.print(" பண்ணின");
+		} else if(VerbInput.equals("make") == true){
+			System.out.print(" பண்ணுகிற");
+		} else if(VerbInput.equals("will make") == true){
+			System.out.print(" பண்ணுவ");
+		} else if(VerbInput.equals("knew") == true){
+			System.out.print(" தெரிந்துக்கொண்ட");
+		} else if(VerbInput.equals("know") == true){
+			System.out.print(" தெரிந்துக்கொள்கிற");
+		} else if(VerbInput.equals("will know") == true){
+			System.out.print(" தெரிந்துக்கொள்வ");
+		} else if(VerbInput.equals("thought") == true){
+			System.out.print(" நினைத்த");
+		} else if(VerbInput.equals("think") == true){
+			System.out.print(" நினைக்கிற");
+		} else if(VerbInput.equals("will think") == true){
+			System.out.print(" நினைப்ப");
+		} else if(VerbInput.equals("took") == true){
+			System.out.print(" எடுத்த");
+		} else if(VerbInput.equals("take") == true){
+			System.out.print(" எடுக்கிற");
+		} else if(VerbInput.equals("will take") == true){
+			System.out.print(" எடுப்ப");
+		} else if(VerbInput.equals("came") == true){
+			System.out.print(" வந்த");
+		} else if(VerbInput.equals("come") == true){
+			System.out.print(" வருகிற");
+		} else if(VerbInput.equals("will come") == true){
+			System.out.print(" வருவ");
+		} else if(VerbInput.equals("wanted") == true){
+			System.out.print(" விரும்பின");
+		} else if(VerbInput.equals("want") == true){
+			System.out.print(" விரும்புகிற");
+		} else if(VerbInput.equals("will want") == true){
+			System.out.print(" விரும்புவ");
+		} else if(VerbInput.equals("used") == true){
+			System.out.print(" பயன்படுத்தின");
+		} else if(VerbInput.equals("use") == true){
+			System.out.print(" பயன்படுத்துகிற");
+		} else if(VerbInput.equals("will use") == true){
+			System.out.print(" பயன்படுத்துவ");
+		} else if(VerbInput.equals("found") == true){
+			System.out.print(" கண்டுப்பிடித்த");
+		} else if(VerbInput.equals("find") == true){
+			System.out.print(" கண்டுப்பிடிக்கிற");
+		} else if(VerbInput.equals("will find") == true){
+			System.out.print(" கண்டுப்பிடிப்ப");
+		} else if(VerbInput.equals("gave") == true){
+			System.out.print(" கொடுத்த");
+		} else if(VerbInput.equals("give") == true){
+			System.out.print(" கொடுக்கிற");
+		} else if(VerbInput.equals("will give") == true){
+			System.out.print(" கொடுப்ப");
+		} else if(VerbInput.equals("worked") == true){
+			System.out.print(" வேலை செய்த");
+		} else if(VerbInput.equals("work") == true){
+			System.out.print(" வேலை செய்கிற");
+		} else if(VerbInput.equals("will work") == true){
+			System.out.print(" வேலை செய்வ");
+		} else if(VerbInput.equals("called") == true){
+			System.out.print(" அழைத்த");
+		} else if(VerbInput.equals("call") == true){
+			System.out.print(" அழைக்கிற");
+		} else if(VerbInput.equals("will call") == true){
+			System.out.println(" அழைப்ப");
+		} else if(VerbInput.equals("tried") == true){
+			System.out.print(" முயற்சி செய்த");
+		} else if(VerbInput.equals("try") == true){
+			System.out.print(" முயற்சி செய்கிற");
+		} else if(VerbInput.equals("will try") == true){
+			System.out.println(" முயற்சி செய்வ");
+		} else if(VerbInput.equals("asked") == true){
+			System.out.print(" கேட்ட");
+		} else if(VerbInput.equals("ask") == true){
+			System.out.print(" கேட்கிற");
+		} else if(VerbInput.equals("will ask") == true){
+			System.out.println(" கேட்ப");
+		} else if(VerbInput.equals("felt") == true){
+			System.out.print(" உணர்ந்த");
+		} else if(VerbInput.equals("feel") == true){
+			System.out.print(" உணர்கிற");
+		} else if(VerbInput.equals("will feel") == true){
+			System.out.println(" உணருவ");
+		} else if(VerbInput.equals("became") == true){
+			System.out.print(" ஆன");
+		} else if(VerbInput.equals("become") == true){
+			System.out.print(" ஆகிற");
+		} else if(VerbInput.equals("will become") == true){
+			System.out.println(" ஆவ");
+		} else if(VerbInput.equals("was") == true){
+			System.out.print(" இருந்த");
+		} else if(VerbInput.equals("am") == true){
+			System.out.print(" இருக்கிற");
+		} else if(VerbInput.equals("will be") == true){
+			System.out.println(" இருப்ப");
+		}
+		
+		if(PngInput.equals("I") == true){
+			System.out.print("ேன்");
+		} else if(PngInput.equals("you") == true){
+			System.out.print("ாய்");
+		} else if(PngInput.equals("he") == true){
+			System.out.print("ான்");
+		} else if(PngInput.equals("she") == true){
+			System.out.print("ாள்");
+		} else if(PngInput.equals("it") == true){
+			System.out.print("து");
+		} else if(PngInput.equals("we") == true){
+			System.out.print("ோம்");
+		} else if(PngInput.equals("you all") == true){
+			System.out.print("ீர்கள்");
+		} else if(PngInput.equals("they") == true){
+			System.out.print("ார்கள்");
+		} else {
+			System.out.print("");
+		}
+
+	}
+
+}
+
