@@ -1,0 +1,229 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please input the noun you would like to inflect:");
+        String Noun = sc.nextLine();
+        System.out.println("Please input the number of the case that you would like to inflect it to:");
+        String Case = sc.nextLine();
+        System.out.println("Please input if the noun is singular or plural:");
+        System.out.println("an input of '2' would ask for the noun to be in the accusative case, or the object of the sentence");
+        System.out.println("an input of '3a' would ask for the noun to be in the sociative case, or 'with' the noun");
+        System.out.println("an input of '3b' would ask for the noun to be in the instrumental case, or 'by'/'because of' the noun");
+        System.out.println("an input of '4a' would ask for the noun to be in the dative case, or the indirect object of the sentence");
+        System.out.println("an input of '4b' would ask for the noun to be in the benefactive case, or 'for' the noun");
+        System.out.println("an input of '5' would ask for the noun to be in the ablative case, or 'from' the noun");
+        System.out.println("an input of '6' would ask for the noun to be in the genitive case, or making the noun possessive");
+        System.out.println("an input of '7a' would ask for the noun to be in the locative case, or 'near'/'at'/'by'/'in' the noun");
+        System.out.println("an input of '7b' would ask for the noun to be in the inessive case, or 'inside of' the noun");
+        String Number = sc.nextLine();
+        System.out.println("Would you like to use the Tholkappiyam system of cases or the modern system of cases?");
+        String Type = sc.nextLine();
+        
+        String[][] UyartinaiNouns = {
+            {"man", "ஆண்", "ஆண்கள்", "ஆண்டிர்"},
+            {"woman", "பெண்", "பெண்கள்", "பெண்டிர்"},
+            {"son", "மகன்", "மகன்கள்", "மகனிர்"},
+            {"daughter", "மகள்", "மகள்கள்", "மகளிர்"},
+            {"father", "தகப்பன்", "தகப்பர்கள்", "தகப்பர்"},
+            {"mother", "தாய்", "தாய்கள்", "தாயார்"},
+        };
+        
+        String[][] AhrinaiNouns = {
+            {"child", "குழந்தை", "குழந்தைகள்"},
+            {"dog", "நாய்", "நாய்கள்"},
+            {"cat", "பூணை", "பூணைகள்"},
+            {"bird", "பறவை", "பறவைகள்"},
+            {"tree", "மரம்", "மரங்கள்"},
+            {"house", "வீடு", "வீடுகள்"},
+        };
+        
+        String[][] UyartinaiCases = {
+            {"2", "ை", "ை"},
+            {"3a", "ுடன்", "ோடு"},
+            {"3b", "ால்", "ினால்"},
+            {"4a", "ிற்கு", "ிற்கு"},
+            {"4b", "ிற்காக", "ிற்காக"},
+            {"5", "ிடம் இருந்து", "ிடம் நின்று"},
+            {"6", "ுடைய", "ினது"},
+            {"7a", "ில்", "ினில்"},
+            {"7b", "ிலுள்", "ிலுள்"},
+        };
+        
+        String[][] AhrinaiCases = {
+            {"2", "ை", "ை"},
+            {"3a", "ுடன்", "ோடு"},
+            {"3b", "ால்", "ினால்"},
+            {"4a", "ிற்கு", "ிற்கு"},
+            {"4b", "ிற்காக", "ிற்காக"},
+            {"5", "ில் இருந்து", "ில் நின்று"},
+            {"6", "ுடைய", "ினது"},
+            {"7a", "ில்", "ினில்"},
+            {"7b", "ிலுள்", "ிலுள்"},
+        };
+        
+        for(int x = 0; x < 6; x++){
+            if(Noun.equals(UyartinaiNouns[x][0]) == true){
+                if(Number.equals("plural") == true){
+                    if(Type.equals("Tholkappiyam")){
+                        System.out.print(UyartinaiNouns[x][3].substring(0, UyartinaiNouns[x][3].length() - 1));
+                        break;
+                    } else if(Type.equals("modern")){
+                        System.out.print(UyartinaiNouns[x][2].substring(0, UyartinaiNouns[x][2].length() - 1));
+                        break;
+                    }
+                } else if(Number.equals("singular") == true){
+                    if(Character.valueOf(UyartinaiNouns[x][1].charAt(UyartinaiNouns[x][1].length() - 1)).equals('்') == true){
+                        if(UyartinaiNouns[x][1].equals("பெண்") == true){
+                            System.out.print(UyartinaiNouns[x][1] + "ண");
+                            break;
+                        } else {
+                            System.out.print(UyartinaiNouns[x][1].substring(0, UyartinaiNouns[x][1].length() - 1));
+                            break;
+                        }
+                    } else if(Character.valueOf(UyartinaiNouns[x][1].charAt(UyartinaiNouns[x][1].length() - 1)).equals('ை') == true){
+                        System.out.print(UyartinaiNouns[x][1] + "ய");
+                        break;
+                    } else if(Character.valueOf(UyartinaiNouns[x][1].charAt(UyartinaiNouns[x][1].length() - 1)).equals('ி') == true){
+                        System.out.print(UyartinaiNouns[x][1] + "ய");
+                        break;
+                    }
+                }
+            } else if(Noun.equals(AhrinaiNouns[x][0]) == true){
+                if(Number.equals("singular") == true){
+                    if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 1)).equals('்') == true){
+                        if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 2)).equals('ம') == true){
+                            System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 2) + "த்த");
+                        } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 2)).equals('ண') == true){
+                            if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ூ') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ா') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ீ') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ே') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ோ') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else {
+                                System.out.print(AhrinaiNouns[x][1] + "ண");
+                            }
+                        } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 2)).equals('ன') == true){
+                            if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ூ') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ா') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ீ') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ே') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ோ') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else {
+                                System.out.print(AhrinaiNouns[x][1] + "ன");
+                            }
+                        } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 2)).equals('ல') == true){
+                            if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ூ') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ா') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ீ') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ே') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ோ') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else {
+                                System.out.print(AhrinaiNouns[x][1] + "ல");
+                            }
+                        } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 2)).equals('ள') == true){
+                            if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ூ') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ா') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ீ') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ே') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 3)).equals('ோ') == true){
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            } else {
+                                System.out.print(AhrinaiNouns[x][1] + "ள");
+                            }
+                        } else {
+                            System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                        }
+                    } else {
+                        if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 1)).equals('ி') == true){
+                            System.out.print(AhrinaiNouns[x][1] + "ய");
+                            break;
+                        } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 1)).equals('ீ') == true){
+                            System.out.print(AhrinaiNouns[x][1] + "ய");
+                            break;
+                        } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 1)).equals('ே') == true){
+                            System.out.print(AhrinaiNouns[x][1] + "ய");
+                            break;
+                        } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 1)).equals('ை') == true){
+                            System.out.print(AhrinaiNouns[x][1] + "ய");
+                            break;
+                        } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 1)).equals('ு') == true){
+                            if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 2)).equals('ட') == true){
+                                if(AhrinaiNouns[x][1].substring(AhrinaiNouns[x][1].length() - 4, AhrinaiNouns[x][1].length() - 2).equals("ண்") == true){
+                                    System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                                } else if(AhrinaiNouns[x][1].substring(AhrinaiNouns[x][1].length() - 4, AhrinaiNouns[x][1].length() - 2).equals("ட்") == true){
+                                    System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                                } else {
+                                    System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1) + "்ட");
+                                }
+                            } else if(Character.valueOf(AhrinaiNouns[x][1].charAt(AhrinaiNouns[x][1].length() - 2)).equals('ற') == true){   
+                                if(AhrinaiNouns[x][1].substring(AhrinaiNouns[x][1].length() - 4, AhrinaiNouns[x][1].length() - 2).equals("ற்") == true){
+                                    System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                                } else if(AhrinaiNouns[x][1].substring(AhrinaiNouns[x][1].length() - 4, AhrinaiNouns[x][1].length() - 2).equals("ன்") == true){
+                                    System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                                } else {
+                                    System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1) + "்ற");
+                                }
+                            } else {
+                                System.out.print(AhrinaiNouns[x][1].substring(0, AhrinaiNouns[x][1].length() - 1));
+                            }
+                        } else {
+                            System.out.print(AhrinaiNouns[x][1] + "வ");
+                            break;
+                        }
+                    }
+                } else {
+                    System.out.print(AhrinaiNouns[x][2].substring(0, AhrinaiNouns[x][2].length() - 1));
+                }
+            }
+        }
+        
+        for(int z = 0; z < 6; z++){
+            for(int y = 0; y < 9; y++){
+                if(Noun.equals(UyartinaiNouns[z][0]) == true){
+                    if(Case.equals(UyartinaiCases[y][0]) == true){
+                        switch(Type){
+                            case "Tholkappiyam":
+                                System.out.print(UyartinaiCases[y][2]);
+                                break;
+                            case "modern":
+                                System.out.print(UyartinaiCases[y][1]);
+                                break;
+                        }
+                    } 
+                } else if(Noun.equals(AhrinaiNouns[z][0]) == true){
+                    if(Case.equals(AhrinaiCases[y][0]) == true){
+                        switch(Type){
+                            case "Tholkappiyam":
+                                System.out.print(AhrinaiCases[y][2]);
+                                break;
+                            case "modern":
+                                System.out.print(AhrinaiCases[y][1]);
+                                break;
+                        }
+                    } 
+                }
+            }
+        }
+    }
+}
