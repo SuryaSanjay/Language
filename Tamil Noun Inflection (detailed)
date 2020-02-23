@@ -6,8 +6,6 @@ public class Main {
         System.out.println("Please input the noun you would like to inflect:");
         String Noun = sc.nextLine();
         System.out.println("Please input the number of the case that you would like to inflect it to:");
-        String Case = sc.nextLine();
-        System.out.println("Please input if the noun is singular or plural:");
         System.out.println("an input of '2' would ask for the noun to be in the accusative case, or the object of the sentence");
         System.out.println("an input of '3a' would ask for the noun to be in the sociative case, or 'with' the noun");
         System.out.println("an input of '3b' would ask for the noun to be in the instrumental case, or 'by'/'because of' the noun");
@@ -17,6 +15,8 @@ public class Main {
         System.out.println("an input of '6' would ask for the noun to be in the genitive case, or making the noun possessive");
         System.out.println("an input of '7a' would ask for the noun to be in the locative case, or 'near'/'at'/'by'/'in' the noun");
         System.out.println("an input of '7b' would ask for the noun to be in the inessive case, or 'inside of' the noun");
+        String Case = sc.nextLine();
+        System.out.println("Please input if the noun is singular or plural:");
         String Number = sc.nextLine();
         System.out.println("Would you like to use the Tholkappiyam system of cases or the modern system of cases?");
         String Type = sc.nextLine();
