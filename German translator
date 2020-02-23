@@ -1,0 +1,537 @@
+import java.util.Scanner;
+import java.util.HashMap;
+public class GermanConjugator {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please print the pronoun, verb, tense, aspect, and mood:");
+        String UserInput = sc.nextLine();
+        String[] UserArray = UserInput.split(" ");
+        String Pronoun = UserArray[0];
+        String Verb = UserArray[1];
+        String Tense = UserArray[2];
+        String Aspect = UserArray[3];
+        String Mood = UserArray[4];
+        
+        HashMap<String,String> PNG1 = new HashMap<String,String>();
+        HashMap<String,String> PNG2 = new HashMap<String,String>();
+        HashMap<String,String> PNG3 = new HashMap<String,String>();
+        HashMap<String,String> PNG4 = new HashMap<String,String>();
+        HashMap<String,String> PNG5 = new HashMap<String,String>();
+        HashMap<String,String> PNG6 = new HashMap<String,String>();
+        HashMap<String,String> Pronoun1 = new HashMap<String,String>();
+        
+        String[][] Verb1 = {
+            {"be", "sein", "ist", "war", "gewesen", "wäre", "seie", "4", "2"},
+            {"see", "sehen", "sieht", "sah", "gesehen", "sähe", "sehe", "2", "1"},
+            {"do", "tun", "tut", "tat", "getan", "tät", "tue", "5", "1"},
+            {"go", "gehen", "geht", "ging", "gegangen", "ginge", "gehe", "1", "2"},
+            {"run", "rennen", "rennt", "rannte", "gerannt", "rennte", "renne", "1", "2"},
+            {"fly", "fliegen", "fliegt", "flog", "geflogen", "flöge", "fliege", "1", "2"},
+            {"grow", "wachsen", "wächt", "wuchs", "gewachsen", "wüchse", "wachse", "2", "2"},
+            {"make", "machen", "macht", "machte", "gemacht", "machte", "mache", "1", "1"},
+            {"hear", "hören", "hört", "hörte", "gehört", "hörte", "höre", "1", "1"},
+            {"feel", "fühlen", "fühlt", "fühlte", "gefühlt", "fühlte", "fühle", "1", "1"},
+            };
+        
+        Pronoun1.put("I", "ich");
+        Pronoun1.put("you", "du");
+        Pronoun1.put("he", "er");
+        Pronoun1.put("she", "sie");
+        Pronoun1.put("it", "es");
+        Pronoun1.put("we", "wir");
+        Pronoun1.put("you-all", "ihr");
+        Pronoun1.put("you-formal", "Sie");
+        Pronoun1.put("they", "sie");
+        
+        PNG1.put("I", "e");
+        PNG1.put("you", "st");
+        PNG1.put("he", "t");
+        PNG1.put("she", "t");
+        PNG1.put("it", "t");
+        PNG1.put("we", "en");
+        PNG1.put("you-all", "t");
+        PNG1.put("you-formal", "en");
+        PNG1.put("they", "en");
+        
+        PNG2.put("I", "");
+        PNG2.put("you", "st");
+        PNG2.put("he", "");
+        PNG2.put("she", "");
+        PNG2.put("it", "");
+        PNG2.put("we", "en");
+        PNG2.put("you-all", "et");
+        PNG2.put("you-formal", "en");
+        PNG2.put("they", "en");
+        
+        PNG3.put("I", "");
+        PNG3.put("you", "st");
+        PNG3.put("he", "");
+        PNG3.put("she", "");
+        PNG3.put("it", "");
+        PNG3.put("we", "en");
+        PNG3.put("you-all", "t");
+        PNG3.put("you-formal", "en");
+        PNG3.put("they", "en");
+        
+        PNG4.put("I", "habe");
+        PNG4.put("you", "hast");
+        PNG4.put("he", "hat");
+        PNG4.put("she", "hat");
+        PNG4.put("it", "hat");
+        PNG4.put("we", "haben");
+        PNG4.put("you-all", "habt");
+        PNG4.put("you-formal", "haben");
+        PNG4.put("they", "haben");
+        
+        PNG5.put("I", "bin");
+        PNG5.put("you", "bist");
+        PNG5.put("he", "ist");
+        PNG5.put("she", "ist");
+        PNG5.put("it", "ist");
+        PNG5.put("we", "sind");
+        PNG5.put("you-all", "seid");
+        PNG5.put("you-formal", "sind");
+        PNG5.put("they", "sind");
+        
+        PNG6.put("I", "werde");
+        PNG6.put("you", "wirst");
+        PNG6.put("he", "wird");
+        PNG6.put("she", "wird");
+        PNG6.put("it", "wird");
+        PNG6.put("we", "werden");
+        PNG6.put("you-all", "werdet");
+        PNG6.put("you-formal", "werden");
+        PNG6.put("they", "werden");
+        
+        for(int i = 0; i < 9; i++)
+            if(Verb.equals(Verb1[i][0]) == true){
+                switch(Verb1[i][7]){
+                    case "1": // normal
+                    	if(Mood.equals("indicative") == true){
+                    	    if(Tense.equals("past") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][3] + PNG3.get(Pronoun));
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " hatte" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " war" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else if(Tense.equals("present") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][1].substring(0, Verb1[i][1].length() - 2) + PNG1.get(Pronoun));
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG4.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG5.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else {
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][1]);
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][4] + " haben ");
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][4] + " sein ");
+                    	                break;
+                    	            }
+                    	        }
+                    	    }
+                    	} else {
+                    	    if(Tense.equals("past") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][5] + PNG3.get(Pronoun));
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " hätte" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " wäre" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else if(Tense.equals("present") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][6] + PNG3.get(Pronoun));
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " sei" + PNG2.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " habe" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else {
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][1]);
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][4] + " haben ");
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][4] + " sein ");
+                    	                break;
+                    	            }
+                    	        }
+                    	    }
+                    	}
+                    case "2": // stem-changing
+                        if(Mood.equals("indicative") == true){
+                    	    if(Tense.equals("past") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][3] + PNG3.get(Pronoun));
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " hatte" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " war" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else if(Tense.equals("present") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            if(Pronoun.equals("he") == true || Pronoun.equals("you") == true || Pronoun.equals("she") == true || Pronoun.equals("it") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][2].substring(0, Verb1[i][2].length() - 1) + PNG1.get(Pronoun));
+                    	                break;
+                    	            } else {
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][1].substring(0, Verb1[i][1].length() - 2) + PNG1.get(Pronoun));
+                    	                break;
+                    	            }
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG4.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG5.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else {
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][1]);
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][4] + " haben ");
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][4] + " sein ");
+                    	                break;
+                    	            }
+                    	        }
+                    	    }
+                    	} else {
+                    	    if(Tense.equals("past") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][5] + PNG3.get(Pronoun));
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " hätte" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " wäre" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else if(Tense.equals("present") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][6] + PNG3.get(Pronoun));
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " sei" + PNG2.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " habe" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else {
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][1]);
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][4] + " haben ");
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][4] + " sein ");
+                    	                break;
+                    	            }
+                    	        }
+                    	    }
+                    	}
+                    case "3": // modals
+                        if(Mood.equals("indicative") == true){
+                    	    if(Tense.equals("past") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][3] + PNG3.get(Pronoun));
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " hatte" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " war" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else if(Tense.equals("present") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][1].substring(0, Verb1[i][1].length() - 2) + PNG3.get(Pronoun));
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG4.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG5.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else {
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][1]);
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][4] + " haben ");
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][4] + " sein ");
+                    	                break;
+                    	            }
+                    	        }
+                    	    }
+                    	} else {
+                    	    if(Tense.equals("past") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][5] + PNG3.get(Pronoun));
+                    	            break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " hätte" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " wäre" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else if(Tense.equals("present") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][6] + PNG3.get(Pronoun));
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " sei" + PNG2.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " habe" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else {
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][1]);
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][4] + " haben ");
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][4] + " sein ");
+                    	                break;
+                    	            }
+                    	        }
+                    	    }
+                    	}
+                    case "4": // sein
+                        if(Mood.equals("indicative") == true){
+                    	    if(Tense.equals("past") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][3] + PNG3.get(Pronoun));
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " hatte" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " war" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else if(Tense.equals("present") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + PNG5.get(Pronoun));
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG4.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG5.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else {
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][1]);
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + Verb1[i][4] + " haben ");
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + Verb1[i][4] + " sein ");
+                    	                break;
+                    	            }
+                    	        }
+                    	    }
+                    	} else {
+                    	    if(Tense.equals("past") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][5] + PNG3.get(Pronoun));
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " hätte" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " wäre" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else if(Tense.equals("present") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][6] + PNG3.get(Pronoun));
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " habe" + PNG2.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " sei" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else {
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][1]);
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][4] + " haben ");
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][4] + " sein ");
+                    	                break;
+                    	            }
+                    	        }
+                    	    }
+                    	}
+                    case "5": // tun --> tue
+                        if(Mood.equals("indicative") == true){
+                    	    if(Tense.equals("past") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][3] + PNG3.get(Pronoun));
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " hatte" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " war" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else if(Tense.equals("present") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][1].substring(0, Verb1[i][1].length() - 1) + PNG1.get(Pronoun));
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG4.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG5.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else {
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][1]);
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][4] + " haben ");
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " " + PNG6.get(Pronoun) + " " + Verb1[i][4] + " sein ");
+                    	                break;
+                    	            }
+                    	        }
+                    	    }
+                    	} else {
+                    	    if(Tense.equals("past") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][5] + PNG3.get(Pronoun));
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " hätte" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " wäre" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else if(Tense.equals("present") == true){
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " " + Verb1[i][6] + PNG3.get(Pronoun));
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " habe" + PNG2.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " sei" + PNG3.get(Pronoun) + " " + Verb1[i][4]);
+                    	                break;
+                    	            }
+                    	        }
+                    	    } else {
+                    	        if(Aspect.equals("simple") == true){
+                    	            System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][1]);
+                    	                break;
+                    	        } else {
+                    	            if(Verb1[i][8].equals("1") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][4] + " haben ");
+                    	                break;
+                    	            } else if(Verb1[i][8].equals("2") == true){
+                    	                System.out.println(Pronoun1.get(Pronoun) + " werd" + PNG1.get(Pronoun) + " " + Verb1[i][4] + " sein ");
+                    	                break;
+                    	            }
+                    	        }
+                    	    }
+                    	}
+                }
+            }
+    }
+}
