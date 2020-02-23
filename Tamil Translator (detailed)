@@ -1,0 +1,324 @@
+import java.util.Scanner;
+import java.util.HashMap;
+public class Conjugator {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please print the pronoun, verb, preposition, article, and object (for direct object, type acc for direct object):");
+        String UserInput = sc.nextLine();
+        String[] UserArray = UserInput.split(" ");
+        String Pronoun = UserArray[0];
+        String Verb = UserArray[1];
+        String Preposition = UserArray[2];
+        String Article = UserArray[3];
+        String Noun = UserArray[4];
+        
+        HashMap<String,String> PNG1 = new HashMap<String,String>();
+        HashMap<String,String> Pronoun1 = new HashMap<String,String>();
+        
+        String[][] Verb1 = {
+            {"exist", "existed", "exists", "will-exist", "இரு", "7"},
+            {"see", "saw", "sees", "will-see", "பார்", "6"},
+            {"do", "did", "does", "will-do", "செய்", "1a"},
+            {"go", "went", "goes", "will-go", "செல்", "1c"},
+            {"cry", "cried", "cries", "will-cry", "அழு", "1a"},
+            {"run", "ran", "runs", "will-run", "ஓடு", "3"},
+            {"fly", "flew", "flies", "will-fly", "பற", "7"},
+            {"grow", "grew", "grows", "will-grow", "வளர்", "2"},
+            {"make", "made", "makes", "will-make", "உருவாக்கு", "3"},
+            {"hear", "heard", "hears", "will-hear", "கேள்விப்படு", "4a"},
+            {"feel", "felt", "feels", "will-feel", "உணர்", "2"},
+            {"hit", "hit", "hits", "will-hit", "அடி", "6"},
+	    {"forget", "forgot", "forgets", "will-forget", "மற", "7"},
+	    {"speak", "spoke", "speaks", "will-speak", "பேசு", "3"},
+	    {"begin", "began", "begins", "will-begin", "ஆரம்பி", "6"},
+	    {"borrow", "borrowed", "borrows", "will-borrow", "கடன் வாங்கு", "3"},
+	    {"order", "ordered", "orders", "will-order", "ஆனையிடு", "4a"},
+	    {"dance", "danced", "dances", "will-dance", "ஆடு", "3"},
+	    {"follow", "followed", "follows", "will-follow", "பின்பற்று", "3"},
+	    {"disappear", "disappeared", "disappears", "will-disappear", "மறை", "2"},
+	    {"hide", "hid", "hides", "will-hide", "மறை", "6"},
+	    {"beg", "begged", "begs", "will-beg", "பிச்சையெடு", "6"},
+	    {"join", "joined", "joins", "will-join", "சேர்", "2"},
+	    {"rip", "ripped", "rips", "will-rip", "கிழி", "6"},
+	    {"destroy", "destroyed", "destroys", "will-destroy", "அழி", "6"},
+	    {"meet", "met", "meets", "will-meet", "சந்தி", "6"},
+	    {"happen", "happened", "happens", "will-happen", "நிகழ்", "2"},
+	    {"become", "became", "becomes", "will-become", "ஆகு", "3"},
+	    {"eat", "ate", "eats", "will-eat", "சாப்பிடு", "4a"},
+	    {"think", "thought", "thinks", "will-think", "நினை", "6"},
+	    {"drink", "drank", "drinks", "will-drink", "குடி", "6"},
+	    {"tell", "told", "tells", "will-tell", "கூறு", "3"},
+	    {"want", "wanted", "wants", "will-want", "விரும்பு", "3"},
+	    {"know", "knew", "knows", "will-know", "தெரிந்துக்கொள்", "1b"},
+	    {"understand", "understood", "understands", "will-understand", "புரிந்துக்கொள்", "1b"},
+            };
+        
+        Pronoun1.put("I", "நான் ");
+        Pronoun1.put("you", "நீ ");
+        Pronoun1.put("he", "அவன் ");
+        Pronoun1.put("she", "அவள் ");
+        Pronoun1.put("it", "அது ");
+        Pronoun1.put("we-inc", "நாம் ");
+        Pronoun1.put("we-exc", "நாங்கள் ");
+        Pronoun1.put("you-all", "நீங்கள் ");
+        Pronoun1.put("they", "அவர்கள் ");
+        Pronoun1.put("those", "அவை ");
+        
+        System.out.print(Pronoun1.get(Pronoun));
+        
+        PNG1.put("I", "ேன்");
+        PNG1.put("you", "ாய்");
+        PNG1.put("he", "ான்");
+        PNG1.put("she", "ாள்");
+        PNG1.put("it", "து");
+        PNG1.put("we-inc", "ோம்");
+        PNG1.put("we-exc", "ோம்");
+        PNG1.put("you-all", "ீர்கள்");
+        PNG1.put("they", "ார்");
+        PNG1.put("those", "ன");
+        
+        if(Article.equals("the") == true){
+            System.out.print("");
+        } else if(Article.equals("a") == true){
+            System.out.print("ஒரு ");
+        }
+        
+        String[][] UyartinaiNouns = {
+            {"man", "men", "ஆண", "ஆண்கள"},
+            {"woman", "women", "பெண", "பெண்கள"},
+            {"son", "sons", "மகன", "மகன்கள"},
+            {"daughter", "daughters", "மகள", "மகள்கள"},
+            {"father", "fathers", "தகப்பன", "தகப்பர்கள"}, 
+            {"mother", "mothers", "தாய", "தாய்கள"},
+            {"me", "us-inc", "என்ன", "நம்ம"},
+            {"you", "you-all", "உன்ன", "உங்கள"},
+            {"him", "us-exc", "அவன", "எங்கள"},
+            {"her", "them", "அவள", "அவர்கள"},
+            {"it", "those", "அதன", "அவற்ற"},
+            {"Indian", "Indians", "இந்தியன", "இந்தியர"},
+            {"teacher-male", "teacher-plural", "ஆசிரியன", "ஆசிரியர்கள"},
+            {"teacher-female", "teacher-formal", "ஆசிரியைய", "ஆசிரியர"},
+            {"student-male", "student-plural", "மாணவன", "மாணவர்கள"},
+            {"student-female", "student-formal", "மாணவி", "மாணவர"},
+            {"person", "persons", "ஆள", "ஆட்கள"},
+        };
+        
+        String[][] AhrinaiNouns = {
+            {"child", "children", "குழந்தைய", "குழந்தைகள"},
+            {"dog", "dogs", "நாய", "நாய்கள"},
+            {"cat", "cats", "பூணைய", "பூணைகள"},
+            {"bird", "birds", "பறவைய", "பறவைகள"},
+            {"tree", "trees", "மரத்த", "மரங்கள"},
+            {"house", "houses", "வீட்ட", "வீடுகள"},
+            {"machine", "machines", "எந்திரத்த", "எந்திரங்கள"},
+            {"school", "schools", "பள்ளிக்கூடத்த", "பள்ளிக்கூடங்கள"},
+            {"car", "cars", "வண்டிய", "வண்டிகள"},
+            {"clock", "clocks", "கடிகாரத்த", "கடிகாரங்கள"},
+            {"horse", "horses", "குதிரைய", "குதிரைகள"},
+            {"food", "foods", "உணவ", "உணவுகள"},
+            {"water", "light", "தண்ணீர", "ஒளிய"},
+            {"raw-rice", "rasam", "அரிசிய", "ரசத்த"},
+            {"cooked-rice", "sambar", "ரசத்த", "சாம்பார"},
+            {"shore", "shores", "கடற்கரைய", "கடற்கரைகள"},
+            {"wind", "winds", "காற்ற", "காற்றுகள"},
+        };
+        
+        String[][] UyartinaiCases = {
+            {"acc", "ை"},
+            {"with", "ுடன்"},
+            {"by", "ால்"},
+            {"to", "ிற்கு"},
+            {"for", "ிற்காக"},
+            {"from", "ிடம் இருந்து"},
+            {"of", "ுடைய"},
+            {"in", "ில்"},
+        };
+        
+        String[][] AhrinaiCases = {
+            {"acc", "ை"},
+            {"with", "ுடன்"},
+            {"by", "ால்"},
+            {"to", "ிற்கு"},
+            {"for", "ிற்காக"},
+            {"from", "ில் இருந்து"},
+            {"of", "ுடைய"},
+            {"in", "ில்"},
+        };
+        
+        for(int z = 0; z < 17; z++){
+            for(int y = 0; y < 8; y++){
+                if(Noun.equals(UyartinaiNouns[z][0]) == true){
+                    if(Preposition.equals(UyartinaiCases[y][0]) == true){
+                        System.out.print(UyartinaiNouns[z][2] + UyartinaiCases[y][1] + " ");
+                        break;
+                    } 
+                } else if(Noun.equals(AhrinaiNouns[z][0]) == true){
+                    if(Preposition.equals(AhrinaiCases[y][0]) == true){
+                        System.out.print(AhrinaiNouns[z][2] + AhrinaiCases[y][1] + " ");
+                        break;
+                    } 
+                } else if(Noun.equals(UyartinaiNouns[z][1]) == true){
+                    if(Preposition.equals(UyartinaiCases[y][0]) == true){
+                        System.out.print(UyartinaiNouns[z][3] + UyartinaiCases[y][1] + " ");
+                        break;
+                    } 
+                } else if(Noun.equals(AhrinaiNouns[z][1]) == true){
+                    if(Preposition.equals(AhrinaiCases[y][0]) == true){
+                        System.out.print(AhrinaiNouns[z][3] + AhrinaiCases[y][1] + " ");
+                        break;
+                    }
+                }
+            }
+        }
+        
+        for(int i = 0; i < 35; i++)
+            if(Verb.equals(Verb1[i][0]) == true || Verb.equals(Verb1[i][2]) == true){
+                switch(Verb1[i][5]){
+                    case "1a":
+                        System.out.print(Verb1[i][4] + "கிற");
+                        break;
+                    case "1b":
+                        System.out.print(Verb1[i][4] + "கிற");
+                        break;
+                    case "1c":
+                        System.out.print(Verb1[i][4] + "கிற");
+                        break;
+                    case "2":
+                        System.out.print(Verb1[i][4] + "கிற");
+                        break;
+                    case "3":
+                        System.out.print(Verb1[i][4] + "கிற");
+                        break;
+                    case "4a":
+                        System.out.print(Verb1[i][4] + "கிற");
+                        break;
+                    case "4b":
+                        System.out.print(Verb1[i][4] + "கிற");
+                        break;
+                    case "5":
+                        break;
+                    case "6":
+                        System.out.print(Verb1[i][4] + "க்கிற");
+                        break;
+                    case "7":
+                        System.out.print(Verb1[i][4] + "க்கிற");
+                        break;
+                }
+            } else if(Verb.equals(Verb1[i][1]) == true){
+                switch(Verb1[i][5]){
+                    case "1a":
+                        System.out.print(Verb1[i][4] + "த");
+                        break;
+                    case "1b":
+                        System.out.print(Verb1[i][4].substring(0, Verb1[i][4].length()-2) + "ண்ட");
+                        break;
+                    case "1c":
+                        System.out.print(Verb1[i][4].substring(0, Verb1[i][4].length()-2) + "ன்ற");
+                        break;
+                    case "2":
+                        System.out.print(Verb1[i][4] + "ந்த");
+                        break;
+                    case "3":
+                        System.out.print(Verb1[i][4].substring(0, Verb1[i][4].length()-1) + "ின");
+                        break;
+                    case "4a":
+                        System.out.print(Verb1[i][4].substring(0, Verb1[i][4].length()-1) + "்ட");
+                        break;
+                    case "4b":
+                        System.out.print(Verb1[i][4].substring(0, Verb1[i][4].length()-1) + "்ற");
+                        break;
+                    case "5":
+                        break;
+                    case "6":
+                        System.out.print(Verb1[i][4] + "த்த");
+                        break;
+                    case "7":
+                        System.out.print(Verb1[i][4] + "ந்த");
+                        break;
+                }
+            } else if(Verb.equals(Verb1[i][3]) == true){
+                switch(Verb1[i][5]){
+                    case "1a":
+                        if(Pronoun.equals("it") == true || Pronoun.equals("those") == true){
+                            System.out.print(Verb1[i][4] + "யும்");
+                            break;
+                        } else {
+                            System.out.print(Verb1[i][4] + "வ");
+                            break;
+                        }
+                    case "1b":
+                        if(Pronoun.equals("it") == true || Pronoun.equals("those") == true){
+                            System.out.print(Verb1[i][4] + "ளும்");
+                            break;
+                        } else {
+                            System.out.print(Verb1[i][4] + "வ");
+                            break;
+                        }
+                    case "1c":
+                        if(Pronoun.equals("it") == true || Pronoun.equals("those") == true){
+                            System.out.print(Verb1[i][4] + "லும்");
+                            break;
+                        } else {
+                            System.out.print(Verb1[i][4] + "வ");
+                            break;
+                        }
+                    case "2":
+                        if(Pronoun.equals("it") == true || Pronoun.equals("those") == true){
+                            System.out.print(Verb1[i][4] + "ும்");
+                            break;
+                        } else {
+                            System.out.print(Verb1[i][4] + "வ");
+                            break;
+                        }
+                    case "3":
+                        if(Pronoun.equals("it") == true || Pronoun.equals("those") == true){
+                            System.out.print(Verb1[i][4] + "ம்");
+                            break;
+                        } else {
+                            System.out.print(Verb1[i][4] + "வ");
+                            break;
+                        }
+                    case "4a":
+                        if(Pronoun.equals("it") == true || Pronoun.equals("those") == true){
+                            System.out.print(Verb1[i][4] + "ம்");
+                            break;
+                        } else {
+                            System.out.print(Verb1[i][4] + "வ");
+                            break;
+                        }
+                    case "4b":
+                        if(Pronoun.equals("it") == true || Pronoun.equals("those") == true){
+                            System.out.print(Verb1[i][4] + "ம்");
+                            break;
+                        } else {
+                            System.out.print(Verb1[i][4] + "வ");
+                            break;
+                        }
+                    case "5":
+                        break;
+                    case "6":
+                        if(Pronoun.equals("it") == true || Pronoun.equals("those") == true){
+                            System.out.print(Verb1[i][4] + "க்கும்");
+                            break;
+                        } else {
+                            System.out.print(Verb1[i][4] + "ப்ப");
+                            break;
+                        }
+                    case "7":
+                        if(Pronoun.equals("it") == true || Pronoun.equals("those") == true){
+                            System.out.print(Verb1[i][4] + "க்கும்");
+                            break;
+                        } else {
+                            System.out.print(Verb1[i][4] + "ப்ப");
+                            break;
+                        }
+                }
+            }
+        
+        if(Pronoun.equals("it") != true && Pronoun.equals("those") != true){
+            System.out.print(PNG1.get(Pronoun));
+        } else {
+            System.out.print("");
+        }
+    }
+}
